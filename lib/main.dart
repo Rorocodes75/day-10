@@ -1,4 +1,5 @@
 import 'package:flutteer_day10/pages/list_pages.dart';
+import 'package:flutteer_day10/pages/signup.dart';
 import 'package:flutteer_day10/service/database.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -21,7 +22,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home:ListPages(),
+      home: Signup(),
     );
   }
 }
