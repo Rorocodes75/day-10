@@ -3,7 +3,7 @@ import 'package:flutteer_day10/extension/nav.dart';
 import 'package:flutteer_day10/pages/list_pages.dart';
 import 'package:flutteer_day10/pages/signup.dart';
 import 'package:flutteer_day10/service/database.dart';
-import 'package:flutteer_day10/widgets/textfeild_widget';
+import 'package:flutteer_day10/widgets/textfeild_widget.dart';
 import 'package:flutter/material.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -35,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: [
             const Text(
-              "Login",
+              "Log-in",
               style: TextStyle(
                 fontSize: 24,
               ),
@@ -49,6 +49,8 @@ class _LoginPageState extends State<LoginPage> {
             TextFieldWidget(
               controller: passwordController,
               text: "enter password",
+              
+              
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

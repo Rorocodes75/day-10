@@ -20,6 +20,14 @@ class Database {
     });
   }
 
+  deleteUser({required int id})async{
+    await supabase.from("students").delete().eq("id",id );
+  }
+ updateUser({required String name, required int id, required double salary}) async {
+    await supabase.from("student").update({"name":name,"salary":salary}).eq("id", id);
+  }
+
+// auth table 
   singup({required String email, required String password})async{
     await supabase.auth.signUp(password: password, email: email);
   }
@@ -27,4 +35,6 @@ class Database {
   login({required String email, required String password})async{
     await supabase.auth.signInWithPassword(password: password, email: email);
   }
+
+  
 }

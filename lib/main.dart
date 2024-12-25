@@ -3,12 +3,15 @@ import 'package:flutteer_day10/pages/signup.dart';
 import 'package:flutteer_day10/service/database.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+   await dotenv.load(fileName:'.env'); 
    await Supabase.initialize(
-    url: "https://ufebkslushkgkboauujp.supabase.co",
-    anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmZWJrc2x1c2hrZ2tib2F1dWpwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQzNTcyODMsImV4cCI6MjA0OTkzMzI4M30._MIJuLO2xSeZdNNffiPyhCKq2INUccFv50fhCwCiAz8",
+    url: dotenv.env['supabaseURL']!
+,
+    anonKey: dotenv.env['supabaseKey']!,
 
   );
   Database().gatData();

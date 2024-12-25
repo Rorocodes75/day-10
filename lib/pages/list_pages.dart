@@ -1,17 +1,18 @@
 import 'package:flutteer_day10/constant/spacing.dart';
+import 'package:flutteer_day10/model/student.dart';
 import 'package:flutteer_day10/service/database.dart';
 import 'package:flutteer_day10/widgets/card_widget.dart';
-import 'package:flutteer_day10/widgets/textfeild_widget';
+import 'package:flutteer_day10/widgets/textfeild_widget.dart';
 import 'package:flutter/material.dart';
 
 class ListPages extends StatefulWidget {
   const ListPages({super.key});
 
   @override
-  State<ListPages> createState() => _ListPagesState();
+  State<ListPages> createState() => ListPagesState();
 }
 
-class _ListPagesState extends State<ListPages> {
+class ListPagesState extends State<ListPages> {
   TextEditingController name = TextEditingController();
   TextEditingController age = TextEditingController();TextEditingController salary = TextEditingController();
   void clearData(){
@@ -30,8 +31,8 @@ class _ListPagesState extends State<ListPages> {
           return ListView.builder(
             itemCount: snapshot.data!.length,
             itemBuilder: (context, index){
-            var item = snapshot.data![index];
-            return CardWidget(age: item.age, id: item.id, name: item.name, salary: item.salary,
+            Student item =snapshot.data![index];
+            return CardWidget( student: item,
             );
 
           },);
@@ -55,7 +56,8 @@ class _ListPagesState extends State<ListPages> {
                  TextFieldWidget(text: "age", controller: age),height24, TextFieldWidget(text: "salary", controller: salary),height24,
                  ElevatedButton(onPressed: ()async{
                   try{
-                    await Database().insertNewStudent(name: name.text, age: int.parse(age.text), salary: double.parse(salary.text));
+                    await Database().insertNewStudent(name: name.text,
+                     age: int.parse(age.text), salary: double.parse(salary.text));
                     if(context.mounted){
                       clearData();
                       setState(() {

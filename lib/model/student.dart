@@ -15,7 +15,7 @@ class Student {
     return Student(
       age: json["age"],
       name: json["name"],
-      salary: json["salary"] as double,
+      salary: json["salary"]?.toDouble(),
       id: json["id"],
     );
 
