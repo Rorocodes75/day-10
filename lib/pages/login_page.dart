@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
             height24,
             TextFieldWidget(
               controller: emailController,
-              text: "enter email",
+              text: "enter email here",
             ),
             height24,
             TextFieldWidget(
