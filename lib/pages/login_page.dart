@@ -55,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("If you don't have an account:"),
+                const Text("If you do not have an account:"),
                 TextButton(
                   onPressed: () {
                     context.pushAndRemove(
